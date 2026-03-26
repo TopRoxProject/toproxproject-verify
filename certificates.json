@@ -18,7 +18,7 @@
       "curs": "Bazele GIS",
       "tip": "Curs GIS",
       "durata": "16 ore",
-      "perioada": "10–11 Aprilie 2025",
+      "perioada": "10â11 Aprilie 2025",
       "data_emiterii": "2025-04-11",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
@@ -29,7 +29,7 @@
       "curs": "GIS Avansat",
       "tip": "Curs GIS Avansat",
       "durata": "24 ore",
-      "perioada": "15–17 Aprilie 2025",
+      "perioada": "15â17 Aprilie 2025",
       "data_emiterii": "2025-04-17",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
@@ -40,7 +40,7 @@
       "curs": "Negociere pentru Antreprenori",
       "tip": "Curs Negociere",
       "durata": "16 ore",
-      "perioada": "5–6 Mai 2025",
+      "perioada": "5â6 Mai 2025",
       "data_emiterii": "2025-05-06",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
@@ -51,7 +51,7 @@
       "curs": "Negociere pentru Project Manageri",
       "tip": "Curs Negociere",
       "durata": "16 ore",
-      "perioada": "12–13 Mai 2025",
+      "perioada": "12â13 Mai 2025",
       "data_emiterii": "2025-05-13",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
@@ -59,11 +59,22 @@
     "TRP-PM1-2025-001": {
       "serie": "TRP-PM1-2025-001",
       "nume": "Exemplu Cursant",
+      "curs": "Project Manager de ElitÄ: Puterea unui PM â Cum SÄ Conduci Atunci CÃ¢nd Nu Decizi Tu",
+      "tip": "Curs Project Management",
+      "durata": "24 ore",
+      "perioada": "20â22 Mai 2025",
+      "data_emiterii": "2025-05-22",
+      "formator": "Roxana Giusca, PhD, GISP",
+      "status": "valid"
+    },
+    "TRP-PM1-2026-001": {
+      "serie": "TRP-PM1-2026-001",
+      "nume": "Alexandra Roberta Giurgiu",
       "curs": "Project Manager de Elită: Puterea unui PM – Cum Să Conduci Atunci Când Nu Decizi Tu",
       "tip": "Curs Project Management",
       "durata": "24 ore",
-      "perioada": "20–22 Mai 2025",
-      "data_emiterii": "2025-05-22",
+      "perioada": "12 Februarie - 24 Martie 2026",
+      "data_emiterii": "2026-03-26",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
     }
