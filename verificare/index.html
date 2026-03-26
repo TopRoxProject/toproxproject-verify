@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificare Certificat — TopRoxProject SRL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#B8973A;--gold-light:#D4AF5A;--ink:#1A1510;--ink-mid:#3D3020;
+    --parchment:#FBF6EC;--red:#C0392B;--blue:#2C4B9A;
+    --green:#1A7A4A;--green-bg:#F0FAF4;--green-border:#5DC48A;
+    --err:#B72B2B;--err-bg:#FDF3F3;--err-border:#E88888;
+    --bg:#F7F3EC;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;}
+  nav{background:#1A1510;border-bottom:2px solid var(--gold);padding:14px 40px;display:flex;align-items:center;gap:16px;}
+  .nav-logo{width:38px;height:38px;object-fit:contain;}
+  .nav-brand{font-family:'Cinzel',serif;font-size:17px;font-weight:700;color:white;letter-spacing:1px;}
+  .nav-brand .red{color:var(--red);}.nav-brand .blue{color:var(--blue);}
+  .nav-sub{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gold);margin-top:2px;}
+  .nav-spacer{flex:1;}
+  .nav-link{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:#8A7050;text-decoration:none;text-transform:uppercase;transition:color .2s;}
+  .nav-link:hover{color:var(--gold);}
+  .hero{background:#1A1510;padding:48px 40px 40px;text-align:center;border-bottom:1px solid #2A1F10;}
+  .hero-icon{width:54px;height:54px;margin:0 auto 14px;}
+  .hero h1{font-family:'Cinzel',serif;font-size:25px;font-weight:700;color:white;letter-spacing:3px;margin-bottom:8px;}
+  .hero p{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:#9A8060;letter-spacing:1px;max-width:500px;margin:0 auto;}
+  .search-section{max-width:640px;margin:0 auto;padding:40px 20px 0;}
+  .search-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:block;}
+  .search-row{display:flex;gap:10px;}
+  .search-input{flex:1;border:2px solid #D4C090;background:white;padding:13px 18px;font-family:'Cinzel',serif;font-size:14px;letter-spacing:1px;color:var(--ink);border-radius:3px;outline:none;transition:border-color .2s;}
+  .search-input:focus{border-color:var(--gold);}
+  .search-input::placeholder{color:#C0A870;font-weight:400;}
+  .search-btn{background:var(--gold);color:var(--ink);border:none;padding:13px 28px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:3px;transition:background .2s;white-space:nowrap;}
+  .search-btn:hover{background:var(--gold-light);}
+  .search-hint{font-family:'Inter',sans-serif;font-size:11px;color:#A09060;margin-top:8px;letter-spacing:.3px;}
+  .result-section{max-width:640px;margin:28px auto 0;padding:0 20px;}
+  .result-card{border-radius:4px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08);}
+  .result-card.valid{border:2px solid var(--green-border);}
+  .result-card.invalid{border:2px solid var(--err-border);}
+  .result-card.loading{border:2px solid #D4C090;}
+  .result-header{padding:18px 24px;display:flex;align-items:center;gap:14px;}
+  .result-header.valid{background:var(--green-bg);}
+  .result-header.invalid{background:var(--err-bg);}
+  .result-header.loading{background:#FAF6EE;}
+  .result-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;font-weight:700;}
+  .result-icon.valid{background:#D0F0E0;color:var(--green);}
+  .result-icon.invalid{background:#FDDEDE;color:var(--err);}
+  .result-icon.loading{background:#F0E8D0;color:var(--gold);}
+  .result-status-title{font-family:'Cinzel',serif;font-size:13px;letter-spacing:2px;font-weight:600;}
+  .result-status-title.valid{color:var(--green);}
+  .result-status-title.invalid{color:var(--err);}
+  .result-status-title.loading{color:#8A7050;}
+  .result-status-sub{font-family:'Inter',sans-serif;font-size:12px;color:#7A6A5A;margin-top:2px;}
+  .result-body{padding:20px 24px;background:white;}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;}
+  .result-field label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:3px;}
+  .result-field .val{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--ink);font-weight:600;}
+  .result-field.full{grid-column:1/-1;}
+  .r-divider{border:none;border-top:1px solid #EDE0C4;margin:4px 0;grid-column:1/-1;}
+  .result-footer{padding:11px 24px;background:#FAF6EE;border-top:1px solid #EDE0C4;font-family:'Inter',sans-serif;font-size:11px;color:#9A8060;text-align:center;line-height:1.5;}
+  .disclaimer-box{max-width:640px;margin:22px auto 0;padding:0 20px;}
+  .disclaimer-inner{background:white;border:1px solid #EDE0C4;border-radius:4px;padding:14px 20px;font-family:'Inter',sans-serif;font-size:11px;color:#9A8060;line-height:1.6;text-align:center;}
+  footer{margin-top:auto;padding:28px 40px;text-align:center;border-top:1px solid #DDD0B0;background:white;margin-top:48px;}
+  footer .fb{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--ink-mid);}
+  footer .fb .red{color:var(--red);}footer .fb .blue{color:var(--blue);}
+  footer p{font-family:'Inter',sans-serif;font-size:11px;color:#9A8060;margin-top:4px;}
+  footer a{color:var(--gold);text-decoration:none;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .spinner{width:22px;height:22px;border:2px solid #D4C090;border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
+</style>
+</head>
+<body>
+<nav>
+  <img class="nav-logo" id="nav-logo" src="" alt="Logo">
+  <div>
+    <div class="nav-brand"><span class="red">Top</span><span class="blue">Rox</span>Project SRL</div>
+    <div class="nav-sub">Formare Profesională Privată</div>
+  </div>
+  <div class="nav-spacer"></div>
+  <a class="nav-link" href="https://www.toproxproject.com">&#8592; Înapoi la site</a>
+</nav>
+
+<div class="hero">
+  <svg class="hero-icon" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="27" cy="27" r="25" fill="none" stroke="#B8973A" stroke-width="1.5"/>
+    <circle cx="27" cy="27" r="19" fill="none" stroke="#B8973A" stroke-width=".7" opacity=".5"/>
+    <path d="M17 27L23 33L37 19" stroke="#B8973A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <h1>Verificare Certificat</h1>
+  <p>Introduceți seria certificatului pentru a verifica autenticitatea documentului emis de TopRoxProject SRL.</p>
+</div>
+
+<div class="search-section">
+  <label class="search-label">&#9670; Serie Certificat</label>
+  <div class="search-row">
+    <input class="search-input" id="serie-input" type="text" placeholder="ex. TRP-GIS1-2025-001" autocomplete="off" spellcheck="false">
+    <button class="search-btn" onclick="verifyCert()">Verifică</button>
+  </div>
+  <div class="search-hint">Seria se găsește în colțul din dreapta jos al certificatului sau sub codul QR.</div>
+</div>
+
+<div class="result-section" id="result-section" style="display:none;"></div>
+
+<div class="disclaimer-box">
+  <div class="disclaimer-inner">
+    Certificatele emise de TopRoxProject SRL atestă participarea și finalizarea unui curs privat de formare profesională.
+    <strong>Nu sunt recunoscute de ANC, Ministerul Educației sau Ministerul Muncii</strong> (OG 129/2000).
+    Această pagină confirmă exclusiv autenticitatea documentelor emise de firma noastră.
+  </div>
+</div>
+
+<footer>
+  <div class="fb"><span class="red">Top</span><span class="blue">Rox</span>Project SRL</div>
+  <p>Formare Profesională Privată &nbsp;·&nbsp; <a href="https://www.toproxproject.com">www.toproxproject.com</a></p>
+  <p style="margin-top:5px;">© <span id="yr"></span> TopRoxProject SRL. Toate drepturile rezervate.</p>
+</footer>
+
+<script>
+// Logo embedded
+const LOGO_DATA = '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';
+document.getElementById('nav-logo').src = 'data:image/png;base64,' + LOGO_DATA;
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+window.addEventListener('load', function(){
+  const params = new URLSearchParams(window.location.search);
+  let s = params.get('serie') || '';
+  if(!s){
+    const parts = window.location.pathname.split('/').filter(Boolean);
+    const last = parts[parts.length - 1];
+    if(last && last !== 'verificare' && last !== 'index.html') s = decodeURIComponent(last);
+  }
+  if(s && s.length > 3){
+    document.getElementById('serie-input').value = s;
+    verifyCert();
+  }
+});
+
+document.getElementById('serie-input').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') verifyCert();
+});
+
+async function verifyCert(){
+  const raw = document.getElementById('serie-input').value.trim();
+  if(!raw){ return; }
+  const serie = raw.toUpperCase().replace(/\s+/g,'');
+  document.getElementById('serie-input').value = serie;
+  showLoading();
+  try {
+    const res = await fetch('../certificates.json?nocache=' + Date.now());
+    if(!res.ok) throw new Error('Nu s-a putut accesa baza de date.');
+    const db = await res.json();
+    const cert = db.certificates[serie];
+    if(!cert) showInvalid(serie);
+    else if(cert.status === 'revocat') showRevoked(cert);
+    else showValid(cert);
+  } catch(err){
+    showError('Eroare: ' + err.message + '. Contactați TopRoxProject SRL.');
+  }
+}
+
+function fmt(d){
+  if(!d) return '—';
+  return new Date(d+'T12:00:00').toLocaleDateString('ro-RO',{day:'numeric',month:'long',year:'numeric'});
+}
+
+function row(label, val, full){
+  return '<div class="result-field'+(full?' full':'')+'"><label>'+label+'</label><div class="val">'+val+'</div></div>';
+}
+
+function showLoading(){
+  const s = document.getElementById('result-section');
+  s.style.display = '';
+  s.innerHTML = '<div class="result-card loading"><div class="result-header loading"><div class="result-icon loading"><span class="spinner"></span></div><div><div class="result-status-title loading">Se verifică...</div><div class="result-status-sub">Căutăm în registrul TopRoxProject SRL</div></div></div></div>';
+}
+
+function showValid(c){
+  const s = document.getElementById('result-section');
+  s.innerHTML = `<div class="result-card valid">
+    <div class="result-header valid">
+      <div class="result-icon valid">✓</div>
+      <div><div class="result-status-title valid">&#9670; Certificat Valid</div>
+      <div class="result-status-sub">Document autentic emis de TopRoxProject SRL</div></div>
+    </div>
+    <div class="result-body">
+      <div class="result-grid">
+        ${row('Titular', '<span style="font-size:22px;">'+c.nume+'</span>', true)}
+        <hr class="r-divider">
+        ${row('Curs Absolvit', c.curs, true)}
+        ${row('Tip Curs', c.tip)}
+        ${row('Durată', c.durata)}
+        ${row('Perioada Desfășurării', c.perioada)}
+        ${row('Data Emiterii', fmt(c.data_emiterii))}
+        ${row('Formator', c.formator)}
+        ${row('Serie Certificat', '<span style="font-family:Cinzel,serif;font-size:13px;">'+c.serie+'</span>')}
+      </div>
+    </div>
+    <div class="result-footer">Emis de <strong>TopRoxProject SRL</strong> — Furnizor privat de formare profesională. Certificat nerecunoscut de ANC / Min. Educației / Min. Muncii (OG 129/2000).</div>
+  </div>`;
+}
+
+function showInvalid(serie){
+  const s = document.getElementById('result-section');
+  s.innerHTML = `<div class="result-card invalid">
+    <div class="result-header invalid">
+      <div class="result-icon invalid">✗</div>
+      <div><div class="result-status-title invalid">Certificat Negăsit</div>
+      <div class="result-status-sub">Seria <strong>${serie}</strong> nu există în registrul nostru</div></div>
+    </div>
+    <div class="result-body" style="background:white;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:15px;color:#5A3020;line-height:1.7;">
+        Nu am găsit niciun certificat cu seria <strong>${serie}</strong>.<br>
+        Verificați că ați introdus corect seria (fără spații, cu liniuțe). Dacă problema persistă, contactați-ne la
+        <a href="mailto:contact@toproxproject.com" style="color:var(--gold);">contact@toproxproject.com</a>.
+      </p>
+    </div>
+  </div>`;
+}
+
+function showRevoked(c){
+  const s = document.getElementById('result-section');
+  s.innerHTML = `<div class="result-card invalid">
+    <div class="result-header invalid">
+      <div class="result-icon invalid">⚠</div>
+      <div><div class="result-status-title invalid">Certificat Revocat</div>
+      <div class="result-status-sub">Seria ${c.serie} — document anulat de TopRoxProject SRL</div></div>
+    </div>
+    <div class="result-body" style="background:white;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:15px;color:#5A3020;line-height:1.7;">
+        Certificatul <strong>${c.serie}</strong> a fost revocat și nu mai este valabil. Contactați-ne pentru detalii.
+      </p>
+    </div>
+  </div>`;
+}
+
+function showError(msg){
+  const s = document.getElementById('result-section');
+  s.style.display = '';
+  s.innerHTML = `<div class="result-card invalid">
+    <div class="result-header invalid">
+      <div class="result-icon invalid">!</div>
+      <div><div class="result-status-title invalid">Eroare</div>
+      <div class="result-status-sub">${msg}</div></div>
+    </div>
+  </div>`;
+}
+</script>
+</body>
+</html>

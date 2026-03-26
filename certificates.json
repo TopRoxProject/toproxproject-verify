@@ -1,0 +1,71 @@
+{
+  "_readme": "Adauga certificate noi in acest fisier. Cheia este seria certificatului.",
+  "_format": {
+    "serie": "string - seria unica a certificatului",
+    "nume": "string - numele complet al cursantului",
+    "curs": "string - denumirea cursului",
+    "tip": "string - tipul cursului",
+    "durata": "string - durata in ore",
+    "perioada": "string - perioada desfasurarii",
+    "data_emiterii": "string - YYYY-MM-DD",
+    "formator": "string",
+    "status": "valid | revocat"
+  },
+  "certificates": {
+    "TRP-GIS1-2025-001": {
+      "serie": "TRP-GIS1-2025-001",
+      "nume": "Exemplu Cursant",
+      "curs": "Bazele GIS",
+      "tip": "Curs GIS",
+      "durata": "16 ore",
+      "perioada": "10–11 Aprilie 2025",
+      "data_emiterii": "2025-04-11",
+      "formator": "Roxana Giusca, PhD, GISP",
+      "status": "valid"
+    },
+    "TRP-GIS2-2025-001": {
+      "serie": "TRP-GIS2-2025-001",
+      "nume": "Exemplu Cursant",
+      "curs": "GIS Avansat",
+      "tip": "Curs GIS Avansat",
+      "durata": "24 ore",
+      "perioada": "15–17 Aprilie 2025",
+      "data_emiterii": "2025-04-17",
+      "formator": "Roxana Giusca, PhD, GISP",
+      "status": "valid"
+    },
+    "TRP-NEG1-2025-001": {
+      "serie": "TRP-NEG1-2025-001",
+      "nume": "Exemplu Cursant",
+      "curs": "Negociere pentru Antreprenori",
+      "tip": "Curs Negociere",
+      "durata": "16 ore",
+      "perioada": "5–6 Mai 2025",
+      "data_emiterii": "2025-05-06",
+      "formator": "Roxana Giusca, PhD, GISP",
+      "status": "valid"
+    },
+    "TRP-NEG2-2025-001": {
+      "serie": "TRP-NEG2-2025-001",
+      "nume": "Exemplu Cursant",
+      "curs": "Negociere pentru Project Manageri",
+      "tip": "Curs Negociere",
+      "durata": "16 ore",
+      "perioada": "12–13 Mai 2025",
+      "data_emiterii": "2025-05-13",
+      "formator": "Roxana Giusca, PhD, GISP",
+      "status": "valid"
+    },
+    "TRP-PM1-2025-001": {
+      "serie": "TRP-PM1-2025-001",
+      "nume": "Exemplu Cursant",
+      "curs": "Project Manager de Elită: Puterea unui PM – Cum Să Conduci Atunci Când Nu Decizi Tu",
+      "tip": "Curs Project Management",
+      "durata": "24 ore",
+      "perioada": "20–22 Mai 2025",
+      "data_emiterii": "2025-05-22",
+      "formator": "Roxana Giusca, PhD, GISP",
+      "status": "valid"
+    }
+  }
+}

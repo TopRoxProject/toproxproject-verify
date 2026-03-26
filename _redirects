@@ -1,0 +1,2 @@
+# Redirect /verificare/SERIE to /verificare/?serie=SERIE
+/verificare/:serie  /verificare/?serie=:serie  200
