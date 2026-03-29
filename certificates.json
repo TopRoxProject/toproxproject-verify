@@ -18,7 +18,7 @@
       "curs": "Bazele GIS",
       "tip": "Curs GIS",
       "durata": "16 ore",
-      "perioada": "10ÃÂ¢ÃÂÃÂ11 Aprilie 2025",
+      "perioada": "10ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ11 Aprilie 2025",
       "data_emiterii": "2025-04-11",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
@@ -29,7 +29,7 @@
       "curs": "GIS Avansat",
       "tip": "Curs GIS Avansat",
       "durata": "24 ore",
-      "perioada": "15ÃÂ¢ÃÂÃÂ17 Aprilie 2025",
+      "perioada": "15ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ17 Aprilie 2025",
       "data_emiterii": "2025-04-17",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
@@ -40,7 +40,7 @@
       "curs": "Negociere pentru Antreprenori",
       "tip": "Curs Negociere",
       "durata": "16 ore",
-      "perioada": "5ÃÂ¢ÃÂÃÂ6 Mai 2025",
+      "perioada": "5ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ6 Mai 2025",
       "data_emiterii": "2025-05-06",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
@@ -51,7 +51,7 @@
       "curs": "Negociere pentru Project Manageri",
       "tip": "Curs Negociere",
       "durata": "16 ore",
-      "perioada": "12ÃÂ¢ÃÂÃÂ13 Mai 2025",
+      "perioada": "12ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ13 Mai 2025",
       "data_emiterii": "2025-05-13",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
@@ -59,10 +59,10 @@
     "TRP-PM1-2025-001": {
       "serie": "TRP-PM1-2025-001",
       "nume": "Exemplu Cursant",
-      "curs": "Project Manager de ElitÃÂÃÂ: Puterea unui PM ÃÂ¢ÃÂÃÂ Cum SÃÂÃÂ Conduci Atunci CÃÂÃÂ¢nd Nu Decizi Tu",
+      "curs": "Project Manager de ElitÃÂÃÂÃÂÃÂ: Puterea unui PM ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Cum SÃÂÃÂÃÂÃÂ Conduci Atunci CÃÂÃÂÃÂÃÂ¢nd Nu Decizi Tu",
       "tip": "Curs Project Management",
       "durata": "24 ore",
-      "perioada": "20ÃÂ¢ÃÂÃÂ22 Mai 2025",
+      "perioada": "20ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ22 Mai 2025",
       "data_emiterii": "2025-05-22",
       "formator": "Roxana Giusca, PhD, GISP",
       "status": "valid"
@@ -70,7 +70,7 @@
     "TRP-PM1-2026-001": {
       "serie": "TRP-PM1-2026-001",
       "nume": "Alexandra Roberta Giurgiu",
-      "curs": "Project Manager de ElitÃÂ: Puterea unui PM Ã¢ÂÂ Cum SÃÂ Conduci Atunci CÃÂ¢nd Nu Decizi Tu",
+      "curs": "Project Manager de ElitÃÂÃÂ: Puterea unui PM ÃÂ¢ÃÂÃÂ Cum SÃÂÃÂ Conduci Atunci CÃÂÃÂ¢nd Nu Decizi Tu",
       "tip": "Curs Project Management",
       "durata": "24 ore",
       "perioada": "12 Februarie - 24 Martie 2026",
@@ -81,7 +81,7 @@
     "TRP-PM1-2026-002": {
       "serie": "TRP-PM1-2026-002",
       "nume": "Alexandra Roberta Giusrgiu",
-      "curs": "Project Manager de ElitÄ: Puterea unui PM â Cum SÄ Conduci Atunci CÃ¢nd Nu Decizi Tu",
+      "curs": "Project Manager de ElitÃÂ: Puterea unui PM Ã¢ÂÂ Cum SÃÂ Conduci Atunci CÃÂ¢nd Nu Decizi Tu",
       "tip": "Curs Project Management",
       "durata": "24 ore",
       "perioada": "12 Februarie 2026 - 24  Martie 2026",
@@ -92,6 +92,17 @@
     "TRP-PM1-2026-003": {
       "serie": "TRP-PM1-2026-003",
       "nume": "Alexandra Roberta Giurgiu",
+      "curs": "Project Manager de Elita: Puterea unui PM - Cum Sa Conduci Atunci Cand Nu Decizi Tu",
+      "tip": "Curs Project Management",
+      "durata": "24 ore",
+      "perioada": "12 Februarie - 24 Martie 2026",
+      "data_emiterii": "2026-03-29",
+      "formator": "Roxana Giusca, PhD, GISP",
+      "status": "valid"
+    },
+    "TRP-PM1-2026-004": {
+      "serie": "TRP-PM1-2026-004",
+      "nume": "Alina Narcisa Constantinescu",
       "curs": "Project Manager de Elita: Puterea unui PM - Cum Sa Conduci Atunci Cand Nu Decizi Tu",
       "tip": "Curs Project Management",
       "durata": "24 ore",
